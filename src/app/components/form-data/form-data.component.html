@@ -1,0 +1,92 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-lg-9 col-md-9 col-sm-12">
+
+      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+            aria-controls="pills-home" aria-selected="true">Person</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+            aria-controls="pills-profile" aria-selected="false">Business</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+          <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+            <div class="row">
+              <div class="col-8">
+              </div>
+              <div class="col-4" style="float:right;">
+                <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+                <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
+              
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
+                    #name="ngModel">
+                  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+                    Name is required
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="alterEgo">Alter Ego</label>
+                  <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="form-group">
+                  <label for="power">Hero Power</label>
+                  <select class="form-control" id="power" required [(ngModel)]="model.power" name="power" #power="ngModel">
+                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+                  </select>
+                  <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
+                    Power is required
+                  </div>
+                </div>
+              </div>
+            </div>
+
+           
+
+           
+
+           
+
+         </form>
+
+        </div>
+        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">..vbbbbbbbbbb.
+        </div>
+      </div>
+
+
+    </div>
+
+
+    <div class="col-lg-3 col-md-3 col-sm-12">
+
+      <pre>{{model | json}}</pre>
+
+
+    </div>
+  </div>
+
+
+
+</div>

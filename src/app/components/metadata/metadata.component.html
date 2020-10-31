@@ -1,0 +1,34 @@
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Label</th>
+            <th>Name</th>
+            <th>Datatype</th>
+            <th>length</th>
+            <th>View?</th>
+            <th>Create?</th>
+            <th>Update?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of metaData;let i=index;">
+            <td>{{data.label}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.dataType}}</td>
+            <td>{{data.length}}</td>
+            <td>
+                <span *ngIf="data.operations.read.allowed"><fa-icon [icon]="faCheck" style="color:green;"></fa-icon></span>
+                <span *ngIf="!data.operations.read.allowed"><fa-icon [icon]="faTimes" style="color:red;"></fa-icon></span>
+            </td>
+            <td>
+                <span *ngIf="data.operations.create.allowed"><fa-icon [icon]="faCheck" style="color:green;"></fa-icon></span>
+                <span *ngIf="!data.operations.create.allowed"><fa-icon [icon]="faTimes" style="color:red;"></fa-icon></span>
+            </td>
+            <td>
+                <span *ngIf="data.operations.update.allowed"><fa-icon [icon]="faCheck" style="color:green;"></fa-icon></span>
+                <span *ngIf="!data.operations.update.allowed"><fa-icon [icon]="faTimes" style="color:red;"></fa-icon></span>
+            </td>
+        </tr>
+      </tbody>
+</table>
