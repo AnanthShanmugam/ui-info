@@ -2,7 +2,7 @@
 
   <div class="col-lg-9 col-md-9 col-sm-12">
 
-    <div class="container form-container">
+    <div class="container form-container card-box">
 
       <form (ngSubmit)="onSubmit(personData.rowidObject)" #personForm="ngForm">
 
@@ -47,9 +47,10 @@
 
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for="birthdate">Birth Date</label>
-              <input type="text" class="form-control" id="birthdate" required [(ngModel)]="personData.birthdate"
-                name="birthdate" #birthdate="ngModel">
+              
+              <label for="birthdate">Birth Date</label><br>
+              <input type="text" readonly class="form-control datepicker" id="birthdate" required [(ngModel)]="personData.birthdate"
+                name="birthdate" #birthdate="ngModel"  data-date-format="mm/dd/yyyy">
               <div [hidden]="birthdate.valid || birthdate.pristine" class="alert alert-danger">
                 Birth Date is required
               </div>
@@ -100,7 +101,7 @@
 
   <div class="col-lg-3 col-md-3 col-sm-12">
 
-    <div class="json-container">
+    <div class="json-container card-box">
       <pre>{{personData | json}}</pre>
     </div>
 

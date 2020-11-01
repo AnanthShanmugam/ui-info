@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-home',
@@ -29,6 +31,11 @@ export class HomeComponent implements OnInit {
         "selected":true
       }
     ];
+    
+    this.persons.forEach(record=>{
+      let date =moment(new Date(record.birthdate)).format("MM/DD/YYYY");
+      record.birthdate = date.toString();
+    })
 
  
   

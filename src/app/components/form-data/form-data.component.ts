@@ -1,5 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Person } from '../../models/person';
+import * as moment from 'moment';
+declare var $: any;
+
 
 @Component({
   selector: 'app-form-data',
@@ -15,16 +18,20 @@ export class FormDataComponent implements OnInit{
 
     personData:Person;
 
+    
     constructor(){
       this.persons = [];
     }
 
     ngOnInit(){
+      $('.datepicker').datepicker();
       
       if(this.persons){
         let selectedPerson = this.persons.filter(record =>{
           return record.selected;
         })
+
+
         this.personData = Object.assign({},selectedPerson[0]);
         this.personData.$original = Object.assign({},selectedPerson[0]);
       }
