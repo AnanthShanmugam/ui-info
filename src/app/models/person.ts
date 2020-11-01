@@ -1,7 +1,7 @@
 export class Person {
 
   constructor(
-      public rowidObject: string,
+      public rowidObject: number,
       public label: string,
       public partyType: string,
       public firstName: string,
@@ -11,7 +11,7 @@ export class Person {
       public generationSuffixCd:string,
       public displayName:string,
       public $original?:Person,
-      public name?:string
+      public selected?:boolean
   ) {  }
 
 }

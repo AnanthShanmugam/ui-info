@@ -1,14 +1,20 @@
 <div class="row form-json-container">
-    <div class="col-sm-12">\
+    <div class="col-sm-12">
         <div class="form-data-container">
-            <app-form-data></app-form-data>
+            <app-form-data
+                [persons]="persons"
+                (personsUpdated)="updatePersonsList($event)"
+            ></app-form-data>
         </div>
     </div>
-   
 </div>
+
 
 <div class="row">
     <div class="col-sm-12">
-        <app-person-table></app-person-table>
+        <app-person-table
+            [persons]="persons"
+        >
+        </app-person-table>
     </div>
 </div>

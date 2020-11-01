@@ -1,0 +1,16 @@
+@import '../../../styles/colors';
+
+div.persons-table-container{
+    background-color: $background-primary-color;
+    font-size: 0.9em;
+    min-height:100%;
+    padding:15px;
+}
+
+
+tr{
+    cursor: pointer;
+}
+tr.selected{
+    background-color: greenyellow !important;
+}

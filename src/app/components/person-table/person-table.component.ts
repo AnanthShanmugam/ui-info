@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Person } from 'src/app/models/person';
 
 @Component({
   selector: 'app-person-table',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PersonTableComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  @Input() persons:Array<Person>;
+  
+  constructor() { 
+    this.persons=[];
   }
 
+  ngOnInit(): void {
+    
+    
+  }
+
+
+  selectPerson(person){
+    alert(person.rowidObject);
+    this.persons.forEach((row,index)=>{
+      this.persons[index].selected=false;
+      if(row.rowidObject == person.rowidObject){
+        this.persons[index].selected = true;
+      }
+    })
+
+  }
 }

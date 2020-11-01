@@ -1,6 +1,5 @@
 div.route-container{
     background-image: url(../assets/images/sunset.jpg);
-    background-color: #b2afab;
     background-position: center center;
     background-size: cover;
     min-height: 100vh;
@@ -9,5 +8,6 @@ div.route-container{
     position: relative;
     width: 100%;
     z-index: 1;
+    padding:25px;
 
 }
