@@ -1,0 +1,8 @@
+@import '../../../styles/colors';
+div.form-json-container{
+    min-height: 70vh;
+    div.form-data-container{
+        background-color: $background-primary-color;
+        font-size: 1em;
+    }
+}

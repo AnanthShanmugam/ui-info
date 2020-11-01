@@ -1,92 +1,109 @@
-<div class="container">
+<div class="row">
 
-  <div class="row">
+  <div class="col-lg-9 col-md-9 col-sm-12">
 
-    <div class="col-lg-9 col-md-9 col-sm-12">
+    <div class="container form-container">
 
-      <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-            aria-controls="pills-home" aria-selected="true">Person</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-            aria-controls="pills-profile" aria-selected="false">Business</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="pills-tabContent">
-        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <form (ngSubmit)="onSubmit()" #personForm="ngForm">
 
-          <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+        <div class="row">
 
-            <div class="row">
-              <div class="col-8">
-              </div>
-              <div class="col-4" style="float:right;">
-                <button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-                <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button>
-              
-              </div>
-            </div>
+          <div class="col-4">
+            {{personData.partyType}} : {{personData.rowidObject}}
+          </div>
 
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="form-group">
-                  <label for="name">Name</label>
-                  <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"
-                    #name="ngModel">
-                  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-                    Name is required
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="form-group">
-                  <label for="alterEgo">Alter Ego</label>
-                  <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo">
-                </div>
-
-              </div>
-
-              <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="form-group">
-                  <label for="power">Hero Power</label>
-                  <select class="form-control" id="power" required [(ngModel)]="model.power" name="power" #power="ngModel">
-                    <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
-                  </select>
-                  <div [hidden]="power.valid || power.pristine" class="alert alert-danger">
-                    Power is required
-                  </div>
-                </div>
-              </div>
-            </div>
-
-           
-
-           
-
-           
-
-         </form>
+          <div class="col-8" style="float:right;display: flex; justify-content:flex-end;">
+            <button type="submit" class="btn btn-success" [disabled]="!personForm.form.valid">Save</button>
+            <button type="button" class="btn btn-primary" (click)="newPerson(); personForm.reset()">Add New</button>
+            <button type="button" class="btn btn-warning" (click)="resetPerson()">Reset</button>
+          
+          </div>
 
         </div>
-        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">..vbbbbbbbbbb.
-        </div>
-      </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" required [(ngModel)]="personData.firstName"
+                name="firstName" #firstName="ngModel">
+              <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
+                firstName is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" required [(ngModel)]="personData.lastName"
+                name="lastName" #lastName="ngModel">
+              <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
+                Last Name is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="birthdate">Birth Date</label>
+              <input type="text" class="form-control" id="birthdate" required [(ngModel)]="personData.birthdate"
+                name="birthdate" #birthdate="ngModel">
+              <div [hidden]="birthdate.valid || birthdate.pristine" class="alert alert-danger">
+                Birth Date is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="taxId">Tax ID</label>
+              <input type="text" class="form-control" id="taxId" required [(ngModel)]="personData.taxId"
+                name="taxId" #taxId="ngModel">
+              <div [hidden]="taxId.valid || taxId.pristine" class="alert alert-danger">
+                Tax ID is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="generationSuffixCd">Generation Suffix</label>
+              <input type="text" class="form-control" id="generationSuffixCd" required [(ngModel)]="personData.generationSuffixCd"
+                name="generationSuffixCd" #generationSuffixCd="ngModel">
+              <div [hidden]="generationSuffixCd.valid || generationSuffixCd.pristine" class="alert alert-danger">
+                Generation Suffix is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="form-group">
+              <label for="displayName">Display Name</label>
+              <input type="text" class="form-control" id="displayName" required [(ngModel)]="personData.displayName"
+                name="displayName" #displayName="ngModel">
+              <div [hidden]="displayName.valid || displayName.pristine" class="alert alert-danger">
+                Display Name is required
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- Row end-->
+      </form>
 
 
+
+    </div> <!-- Form Container end-->
+  </div> <!-- Colummn 9 end-->
+
+
+  <div class="col-lg-3 col-md-3 col-sm-12">
+
+    <div class="json-container">
+      <pre>{{personData | json}}</pre>
     </div>
 
 
-    <div class="col-lg-3 col-md-3 col-sm-12">
-
-      <pre>{{model | json}}</pre>
-
-
-    </div>
   </div>
-
-
-
 </div>

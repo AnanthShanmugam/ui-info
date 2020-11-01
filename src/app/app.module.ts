@@ -12,6 +12,8 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { FormDataComponent } from './components/form-data/form-data.component';
 
 import { BusinessService } from './services/business.service';
+import { PersonTableComponent } from './components/person-table/person-table.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { BusinessService } from './services/business.service';
     MetadataComponent,
     HomeComponent,
     NotfoundComponent,
-    FormDataComponent
+    FormDataComponent,
+    PersonTableComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

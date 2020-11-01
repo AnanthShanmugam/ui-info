@@ -8,17 +8,22 @@ import { Person } from '../../models/person';
   styleUrls: ['./form-data.component.scss']
 })
 export class FormDataComponent{
-  powers = ['Really Smart', 'Super Flexible',
-  'Super Hot', 'Weather Changer'];
 
-model = new Person(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+
+
+personData = new Person('1', 'HARLEY,WILLIAM', 'Person', 'WILLIAM','HARLEY','1886-09-07T00:00:00+01:00','1234567','III','WILLIAM WINTON HARLEY');
 
 submitted = false;
 
 onSubmit() { this.submitted = true; }
 
-newHero() {
-this.model = new Person(42, '', '');
+newPerson() {
+this.personData = new Person(null,null,null,null,null,null,null,null,null);
+}
+
+
+resetPerson(){
+  console.log("Resetting Data");
 }
 
 
