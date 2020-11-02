@@ -14,7 +14,17 @@
     font-size: 0.9em;
     min-height:100%;
     max-height: 100%;
-    padding:15px;
+   
+
+
+    div.entity-header{
+      height:50px;
+      background:linear-gradient(135deg, #184e68 0%,#184e68 100%);
+      padding:10px 0px;
+      font-size:1.2em;
+      color: $text-primary-color;
+      
+    }
   }
 
   div.json-container{

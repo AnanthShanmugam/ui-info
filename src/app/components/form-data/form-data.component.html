@@ -6,13 +6,18 @@
 
       <form (ngSubmit)="onSubmit(personData.rowidObject)" #personForm="ngForm">
 
-        <div class="row">
 
-          <div class="col-4">
+        <div class="row entity-header">
+          <div class="col-12">
             {{personData.partyType}} : {{personData.rowidObject}}
           </div>
+        </div>
+        <br>
+        <div class="row">
 
-          <div class="col-8" style="float:right;display: flex; justify-content:flex-end;">
+         
+
+          <div class="col-12" style="float:right;display: flex; justify-content:flex-end;">
             <button type="submit" class="btn btn-success" style="margin-right:10px;" [disabled]="!personForm.form.valid">Save</button>
             <button type="button" class="btn btn-primary" style="margin-right:10px;" (click)="newPerson(); personForm.reset()">Add New</button>
             <button type="button" class="btn btn-warning" (click)="resetPerson()">Reset</button>
@@ -101,7 +106,7 @@
 
   <div class="col-lg-3 col-md-3 col-sm-12">
 
-    <div class="json-container card-box">
+    <div class="json-container card-box entity-header">
       <pre>{{personData | json}}</pre>
     </div>
 
