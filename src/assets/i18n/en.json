@@ -1,6 +1,14 @@
 {
-    "personData": {
+    "person":"Person",
+    "save":"Save",
+    "addNew":"Add New",
+    "reset":"Reset",
+    "personLabel": {
         "firstName": "First Name",
-        "lastName": "Last Name"
+        "lastName": "Last Name",
+        "birthdate":"Birth Date",
+        "taxId":"Tax ID",
+        "generationSuffixCd":"Generation Suffix",
+        "displayName":"Display Name"
     }
 }

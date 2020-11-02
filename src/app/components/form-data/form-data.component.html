@@ -18,9 +18,9 @@
          
 
           <div class="col-12" style="float:right;display: flex; justify-content:flex-end;">
-            <button type="submit" class="btn btn-success" style="margin-right:10px;" [disabled]="!personForm.form.valid">Save</button>
-            <button type="button" class="btn btn-primary" style="margin-right:10px;" (click)="newPerson(); personForm.reset()">Add New</button>
-            <button type="button" class="btn btn-warning" (click)="resetPerson()">Reset</button>
+            <button type="submit" class="btn btn-success" style="margin-right:10px;" [disabled]="!personForm.form.valid">{{ 'save' |translate}}</button>
+            <button type="button" class="btn btn-primary" style="margin-right:10px;" (click)="newPerson(); personForm.reset()">{{ 'addNew' |translate}}</button>
+            <button type="button" class="btn btn-info" (click)="resetPerson()">{{ 'reset' |translate}}</button>
           
           </div>
 
@@ -30,7 +30,8 @@
 
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for="firstName">First Name</label>
+              <label for="firstName">{{ 'personLabel.firstName' | translate}}
+              </label>
               <input type="text" class="form-control" id="firstName" required [(ngModel)]="personData.firstName"
                 name="firstName" #firstName="ngModel">
               <div [hidden]="firstName.valid || firstName.pristine" class="alert alert-danger">
@@ -41,7 +42,7 @@
 
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for="lastName">Last Name</label>
+              <label for="lastName">{{ 'personLabel.lastName' | translate}}</label>
               <input type="text" class="form-control" id="lastName" required [(ngModel)]="personData.lastName"
                 name="lastName" #lastName="ngModel">
               <div [hidden]="lastName.valid || lastName.pristine" class="alert alert-danger">
@@ -53,7 +54,7 @@
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
               
-              <label for="birthdate">Birth Date</label><br>
+              <label for="birthdate">{{ 'personLabel.birthdate' | translate}}</label><br>
               <input type="text" readonly class="form-control datepicker" id="birthdate" required [(ngModel)]="personData.birthdate"
                 name="birthdate" #birthdate="ngModel"  data-date-format="mm/dd/yyyy">
               <div [hidden]="birthdate.valid || birthdate.pristine" class="alert alert-danger">
@@ -64,7 +65,7 @@
 
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for="taxId">Tax ID</label>
+              <label for="taxId">{{ 'personLabel.taxId' | translate}}</label>
               <input type="text" class="form-control" id="taxId" required [(ngModel)]="personData.taxId"
                 name="taxId" #taxId="ngModel">
               <div [hidden]="taxId.valid || taxId.pristine" class="alert alert-danger">
@@ -75,7 +76,7 @@
 
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for="generationSuffixCd">Generation Suffix</label>
+              <label for="generationSuffixCd">{{ 'personLabel.generationSuffixCd' | translate}}</label>
               <input type="text" class="form-control" id="generationSuffixCd" required [(ngModel)]="personData.generationSuffixCd"
                 name="generationSuffixCd" #generationSuffixCd="ngModel">
               <div [hidden]="generationSuffixCd.valid || generationSuffixCd.pristine" class="alert alert-danger">
@@ -86,7 +87,7 @@
 
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="form-group">
-              <label for="displayName">Display Name</label>
+              <label for="displayName">{{ 'personLabel.displayName' | translate}}</label>
               <input type="text" class="form-control" id="displayName" required [(ngModel)]="personData.displayName"
                 name="displayName" #displayName="ngModel">
               <div [hidden]="displayName.valid || displayName.pristine" class="alert alert-danger">
@@ -106,7 +107,7 @@
 
   <div class="col-lg-3 col-md-3 col-sm-12">
 
-    <div class="json-container card-box entity-header">
+    <div class="json-container card-box">
       <pre>{{personData | json}}</pre>
     </div>
 

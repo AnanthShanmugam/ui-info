@@ -1,0 +1,14 @@
+{
+    "person":"la personne",
+    "save":"enregistrer",
+    "addNew":"ajouter un nouveau",
+    "reset":"réinitialiser",
+    "personLabel": {
+        "firstName": "Prénom",
+        "lastName": "nom de famille",
+        "birthdate":"date de naissance",
+        "taxId":"Numéro d'identification fiscale",
+        "generationSuffixCd":"Suffixe de génération",
+        "displayName":"Afficher un nom"
+    }
+}

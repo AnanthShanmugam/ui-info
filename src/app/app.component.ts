@@ -8,9 +8,31 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'UI Informatica';
+  isFrench:boolean=false;
+  isDark:boolean=false;
 
 
   constructor(private translate: TranslateService) {
     translate.setDefaultLang('en');
+}
+
+checkValue(event: any){
+  if(event)
+  {
+    this.translate.use('fr');
+  }
+  else{
+    this.translate.use('en');
+  }
+}
+
+checkBg(event:any){
+  if(event)
+  {
+
+  }
+  else{
+
+  }
 }
 }

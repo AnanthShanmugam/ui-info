@@ -18,8 +18,6 @@ import { FormDataComponent } from './components/form-data/form-data.component';
 
 import { BusinessService } from './services/business.service';
 import { PersonTableComponent } from './components/person-table/person-table.component';
-import { HeaderComponent } from './components/header/header.component';
-
 
 @NgModule({
   declarations: [
@@ -28,8 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
     HomeComponent,
     NotfoundComponent,
     FormDataComponent,
-    PersonTableComponent,
-    HeaderComponent
+    PersonTableComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
-div.route-container{
+@import "../styles/colors";
+
+div.app-container{
     background-image: url(../assets/images/sunset.jpg);
     background-position: center center;
     background-size: cover;
@@ -8,6 +10,26 @@ div.route-container{
     position: relative;
     width: 100%;
     z-index: 1;
-    padding:25px;
+
+}
+
+div.header-container{
+    display: flex;
+    justify-content: flex-end;
+    padding:10px 30px;
+    li{
+        list-style-type:none;
+        float:left;
+        color:$text-primary-color;
+        font-size:1em;
+        border:1px solid white;
+        margin-left:10px;
+        padding:10px;
+        cursor: pointer;
+    }
+}
+
+div.route-container{
+    padding:5px 25px;
 
 }
