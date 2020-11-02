@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 import { AppComponent } from './app.component';
 import { MetadataComponent } from './components/metadata/metadata.component';
@@ -18,6 +19,7 @@ import { FormDataComponent } from './components/form-data/form-data.component';
 
 import { BusinessService } from './services/business.service';
 import { PersonTableComponent } from './components/person-table/person-table.component';
+import { DatePickerComponent } from './shared/date-picker/date-picker.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PersonTableComponent } from './components/person-table/person-table.com
     HomeComponent,
     NotfoundComponent,
     FormDataComponent,
-    PersonTableComponent
+    PersonTableComponent,
+    DatePickerComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { PersonTableComponent } from './components/person-table/person-table.com
     HttpClientModule,
     FontAwesomeModule,
     FormsModule,
+    BsDatepickerModule.forRoot(),
     HttpClientModule,
         TranslateModule.forRoot({
             loader: {

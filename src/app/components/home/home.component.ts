@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from 'src/app/models/person';
-import * as moment from 'moment';
 
 
 @Component({
@@ -33,8 +32,8 @@ export class HomeComponent implements OnInit {
     ];
     
     this.persons.forEach(record=>{
-      let date =moment(new Date(record.birthdate)).format("MM/DD/YYYY");
-      record.birthdate = date.toString();
+    //  let date =moment(new Date(record.birthdate)).format("MM/DD/YYYY");
+     // record.birthdate = date.toString();
     })
 
  
@@ -44,6 +43,12 @@ export class HomeComponent implements OnInit {
 
   updatePersonsList(data:any){
     console.log("Data in home ",data);
+  }
+
+
+  updateRecord(event){
+    console.log(event);
+    this.persons = event.data;
   }
  
 

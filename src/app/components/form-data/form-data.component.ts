@@ -1,6 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { Person } from '../../models/person';
 import * as moment from 'moment';
+import { DatePickerComponent } from 'src/app/shared/date-picker/date-picker.component';
 declare var $: any;
 
 
@@ -16,6 +17,10 @@ export class FormDataComponent implements OnInit{
     @Input() persons:Array<Person>;
     @Output() personsUpdated: EventEmitter<any> = new EventEmitter();
 
+    @ViewChild("birthdatepicker")
+    birthdatepicker: DatePickerComponent;
+    birthDateModel:any;
+
     personData:Person;
 
     
@@ -24,7 +29,7 @@ export class FormDataComponent implements OnInit{
     }
 
     ngOnInit(){
-      $('.datepicker').datepicker();
+      
       
       if(this.persons){
         let selectedPerson = this.persons.filter(record =>{
@@ -35,53 +40,82 @@ export class FormDataComponent implements OnInit{
         this.personData = Object.assign({},selectedPerson[0]);
         this.personData.$original = Object.assign({},selectedPerson[0]);
       }
+
+      this.birthDateModel = {
+        "id":"birthdate",
+        "viewDate":this.personData.birthdate
+      }
     
     }
 
    
-submitted = false;
+      submitted = false;
 
-onSubmit(id:number) { 
- 
-  id?this.updatePerson(id):this.createNewPerson();
-  this.submitted = true; 
-  this.personsUpdated.emit(this.persons);
-  
-}
+      setValue(field,event){
+        if(field == "birthdate"){
+          console.log("Event",event);
+          this.personData.birthdate = event;
+        }
+      }
 
-newPerson() {
-  this.personData = new Person(null,null,null,null,null,null,null,null,null);
-}
+      onSubmit(id:number) { 
+      
+        id?this.updatePerson(id):this.createNewPerson();
+        this.submitted = true; 
+        this.personsUpdated.emit(this.persons);
+        
+      }
 
-updatePerson(id){
-  this.persons.forEach((row,index)=>{
-    if(row.rowidObject == id){
-      this.persons[index]=this.personData;
-    }
-  })
- 
-  
-}
+      newPerson() {
+        this.personData = new Person(null,null,'Person',null,null,null,null,null,null);
+        this.birthdatepicker.model.viewDate = null;
+      }
 
-createNewPerson(){
-  let max = 0;
-  this.persons.forEach(person => {
-    if (person.rowidObject > max) {
-    max = person.rowidObject;
-    }
-  });
+      updatePerson(id){
+        this.persons.forEach((row,index)=>{
+          if(row.rowidObject == id){
+            this.persons[index]=this.personData;
+          }
+        })
+      
+        
+      }
 
-  this.personData.rowidObject = max+1;
-  this.persons.push(this.personData);
+      createNewPerson(){
+        let max = 0;
+        this.persons.forEach(person => {
+          if (person.rowidObject > max) {
+          max = person.rowidObject;
+          }
+        });
+
+        this.personData.rowidObject = max+1;
+        this.persons.push(this.personData);
 
 
-}
+      }
 
 
-resetPerson(){
-  this.personData = Object.assign({},this.personData.$original);
-  this.personData.$original = Object.assign({},this.personData);
-}
+      resetPerson(){
+        if(!this.personData.rowidObject){
+          this.newPerson();
+          return;
+        }
+        this.personData = Object.assign({},this.personData.$original);
+        this.personData.$original = Object.assign({},this.personData);
+        this.updateDatePicker();
+        
+        
+      }
+
+      updateDatePicker(){
+        this.birthdatepicker.model.viewDate = this.personData.birthdate;
+        this.birthDateModel = {
+          "id":"birthdate",
+          "viewDate":this.personData.birthdate
+        }
+        this.birthdatepicker.setDateFormat();
+      }
 
 
 }
